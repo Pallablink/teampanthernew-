@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_hud_glass_card"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Top Drag Handle -->
+        <View
+            android:layout_width="44dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_tab_inactive" />
+
+        <!-- Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/icon_settings_3d" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.04"
+                        android:text="BOT CONFIG &amp; STRATEGY"
+                        android:textColor="@color/vip_gold"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Trading Bot &amp; Level Automation"
+                        android:textColor="@color/vip_text_secondary"
+                        android:textSize="10.5sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_header_btn_cyan"
+                android:paddingStart="8dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="3dp"
+                android:text="VIP ACTIVE"
+                android:textColor="@color/vip_accent_cyan"
+                android:textSize="9.5sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
+            android:background="#1E293B" />
+
+        <!-- 1. AI SIGNAL PREDICTION STRATEGY -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.05"
+            android:text="1. AI SIGNAL PREDICTION STRATEGY"
+            android:textColor="@color/vip_accent_cyan"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Select trading algorithm to analyze WinGo patterns."
+            android:textColor="@color/vip_text_secondary"
+            android:textSize="10sp" />
+
+        <!-- Strategy 1: AI Neural Predictor -->
+        <LinearLayout
+            android:id="@+id/cardAiNeuralPredictor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_strategy_card_active"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_radar_3d" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.04"
+                            android:text="AI Neural Predictor"
+                            android:textColor="@color/vip_gold"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4-Layer Deep Ensemble (EMA + Markov + Parity)"
+                            android:textColor="@color/vip_text_secondary"
+                            android:textSize="9.5sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvBadgeAiNeural"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_history_w"
+                    android:paddingStart="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="3dp"
+                    android:text="ACTIVE"
+                    android:textColor="@color/vip_white"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- Strategy 2: TEAM PANTHER VIP -->
+        <LinearLayout
+            android:id="@+id/cardTeamPantherVip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/bg_strategy_card_inactive"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_radar_3d" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.04"
+                            android:text="TEAM PANTHER VIP"
+                            android:textColor="@color/vip_white"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="S â†’ B â†’ R â†’ G â†’ B â†’ S â†’ G â†’ R (Loop)"
+                            android:textColor="@color/vip_text_secondary"
+                            android:textSize="9.5sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvBadgeTeamPantherVip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_history_w"
+                    android:paddingStart="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="3dp"
+                    android:text="ACTIVE"
+                    android:textColor="@color/vip_white"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- Strategy 3: TEAM PANTHER VIP 2 -->
+        <LinearLayout
+            android:id="@+id/cardTeamPantherVip2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/bg_strategy_card_inactive"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_radar_3d" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.04"
+                            android:text="TEAM PANTHER VIP 2"
+                            android:textColor="@color/vip_white"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="S â†’ S â†’ B â†’ B â†’ S â†’ S â†’ B â†’ B (Loop)"
+                            android:textColor="@color/vip_text_secondary"
+                            android:textSize="9.5sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvBadgeTeamPantherVip2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_history_w"
+                    android:paddingStart="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="3dp"
+                    android:text="ACTIVE"
+                    android:textColor="@color/vip_white"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- Strategy 4: Trend Streak Strategy (From TigerAutoRobot) -->
+        <LinearLayout
+            android:id="@+id/cardTrendStreak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/bg_strategy_card_inactive"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_radar_3d" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.04"
+                            android:text="Trend Streak Strategy"
+                            android:textColor="@color/vip_white"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TigerAuto 3-Tier Chart, Ratio &amp; Loss Protection"
+                            android:textColor="@color/vip_text_secondary"
+                            android:textSize="9.5sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvBadgeTrendStreak"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_history_w"
+                    android:paddingStart="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="3dp"
+                    android:text="ACTIVE"
+                    android:textColor="@color/vip_white"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- Strategy 5: Dragon Strategy (Streak AI) -->
+        <LinearLayout
+            android:id="@+id/cardDragonStrategy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/bg_strategy_card_inactive"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_radar_3d" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.04"
+                            android:text="Dragon Strategy (Streak AI)"
+                            android:textColor="@color/vip_white"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Consecutive Momentum Run &amp; Trend Following"
+                            android:textColor="@color/vip_text_secondary"
+                            android:textSize="9.5sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvBadgeDragon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_history_w"
+                    android:paddingStart="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="3dp"
+                    android:text="ACTIVE"
+                    android:textColor="@color/vip_white"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- Strategy 6: Master Bot (Alternation AI) -->
+        <LinearLayout
+            android:id="@+id/cardMasterBot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/bg_strategy_card_inactive"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_radar_3d" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.04"
+                            android:text="Master Bot (Alternation AI)"
+                            android:textColor="@color/vip_white"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1-Skip &amp; Alternation Pattern Detector"
+                            android:textColor="@color/vip_text_secondary"
+                            android:textSize="9.5sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvBadgeMaster"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_history_w"
+                    android:paddingStart="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="3dp"
+                    android:text="ACTIVE"
+                    android:textColor="@color/vip_white"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- Strategy 7: Universal Bot (Digital Root AI) -->
+        <LinearLayout
+            android:id="@+id/cardUniversalBot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/bg_strategy_card_inactive"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_radar_3d" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.04"
+                            android:text="Universal Bot (Digital Root AI)"
+                            android:textColor="@color/vip_white"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Period Modulo &amp; Offset Matrix Formula"
+                            android:textColor="@color/vip_text_secondary"
+                            android:textSize="9.5sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvBadgeUniversal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_history_w"
+                    android:paddingStart="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="3dp"
+                    android:text="ACTIVE"
+                    android:textColor="@color/vip_white"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- 2. TARGET PROFIT (AUTO-STOP) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:letterSpacing="0.05"
+            android:text="2. TARGET PROFIT ₹ (AUTO-STOP)"
+            android:textColor="@color/vip_success"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Auto-stops trading bot safely once this session profit is reached."
+            android:textColor="@color/vip_text_secondary"
+            android:textSize="10sp" />
+
+        <EditText
+            android:id="@+id/etSettingsTargetProfit"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_hud_card_item"
+            android:digits="0123456789."
+            android:inputType="numberDecimal"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:text="500.00"
+            android:textColor="@color/vip_success"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!-- Target Presets (Angular Modern Chips) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chipTarget200"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="₹200"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipTarget500"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="₹500"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipTarget1k"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="₹1,000"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipTarget2k"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="₹2,000"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipTarget5k"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="₹5,000"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 3. FIRST BET & LEVEL MAINTENANCE -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:letterSpacing="0.05"
+            android:text="3. LEVEL MAINTENANCE &amp; STAKE"
+            android:textColor="@color/vip_gold"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+
+            <!-- First Bet Stake -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FIRST BET STAKE (₹)"
+                    android:textColor="@color/vip_text_hint"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etSettingsFirstBet"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_hud_card_item"
+                    android:digits="0123456789."
+                    android:inputType="numberDecimal"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:text="1.00"
+                    android:textColor="@color/vip_gold"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Levels to Maintain -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LEVELS TO MAINTAIN"
+                    android:textColor="@color/vip_text_hint"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etSettingsMaxLevels"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_hud_card_item"
+                    android:digits="0123456789"
+                    android:inputType="number"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:text="10"
+                    android:textColor="@color/vip_accent_cyan"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Quick Bet Presets (Angular Modern Chips) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chipBet1"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="₹1"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipBet2"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="₹2"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipBet6"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="₹6"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipBet10"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="₹10"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipBet20"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="₹20"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipBet50"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="₹50"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Quick Level Presets (5 LVL, 6 LVL, 7 LVL, 8 LVL, 10 LVL) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chipLvl5"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="5 LVL"
+                android:textColor="@color/vip_white"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipLvl6"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="6 LVL"
+                android:textColor="@color/vip_white"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipLvl7"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="7 LVL"
+                android:textColor="@color/vip_white"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipLvl8"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="8 LVL"
+                android:textColor="@color/vip_white"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipLvl10"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="10 LVL"
+                android:textColor="@color/vip_white"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Multiplier Strategy Toggle (Beveled Rectangles) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSettings2x"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_toggle_active_2x"
+                android:letterSpacing="0.04"
+                android:text="2X MARTINGALE"
+                android:textAllCaps="false"
+                android:textColor="@color/vip_white"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="2dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSettings3x"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_toggle_inactive"
+                android:letterSpacing="0.04"
+                android:text="3X LEVEL TRICK"
+                android:textAllCaps="false"
+                android:textColor="@color/vip_text_hint"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="2dp" />
+        </LinearLayout>
+
+        <!-- 4. OPEN CALCULATOR SHORTCUT BUTTON -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSettingsOpenCalculator"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_vip_secondary_btn"
+            android:letterSpacing="0.04"
+            android:text="2X / 3X LEVEL &amp; BET CALCULATOR"
+            android:textAllCaps="false"
+            android:textColor="@color/vip_gold"
+            android:textSize="11.5sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            app:cornerRadius="2dp"
+            app:icon="@drawable/icon_calculator_3d"
+            app:iconGravity="textStart"
+            app:iconPadding="10dp"
+            app:iconSize="20dp"
+            app:iconTint="@null" />
+
+        <!-- 5. USER PROFILE SHORTCUT BUTTON -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSettingsOpenProfile"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_vip_secondary_btn"
+            android:letterSpacing="0.04"
+            android:text="USER PROFILE &amp; SUPPORT SETTINGS"
+            android:textAllCaps="false"
+            android:textColor="@color/vip_accent_cyan"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            app:cornerRadius="2dp"
+            app:icon="@drawable/icon_settings_3d"
+            app:iconGravity="textStart"
+            app:iconPadding="10dp"
+            app:iconSize="20dp"
+            app:iconTint="@null" />
+
+        <!-- 6. ACTION BUTTONS: SAVE & CANCEL -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSettingsCancel"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_secondary_btn"
+                android:letterSpacing="0.04"
+                android:text="CANCEL"
+                android:textAllCaps="false"
+                android:textColor="@color/vip_text_secondary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="2dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSettingsSave"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1.6"
+                android:background="@drawable/bg_btn_vip_gold"
+                android:letterSpacing="0.04"
+                android:text="SAVE &amp; APPLY"
+                android:textAllCaps="false"
+                android:textColor="@color/vip_white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="2dp"
+                app:icon="@drawable/icon_radar_3d"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:iconSize="18dp"
+                app:iconTint="@null" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+
+
+

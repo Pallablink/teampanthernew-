@@ -1,0 +1,31 @@
+*.iml
+.gradle
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+.kotlin/
+/.chrome_temp/
+/scratch/
+app/src/main/java/com/example/teampanthernew/scratch/
+
+# Root debug artifacts, logs, and scratch scripts
+/logcat_dump.txt
+/main.dart.js
+/*.png
+/*.mjs
+/*.js
+/*.html
+
+# Packaged admin zips and local secrets/builds
+/admin_panel/*.zip
+/admin_panel/.zip
+*.apk
+*.aab
+*.jks
+*.keystore
+.env

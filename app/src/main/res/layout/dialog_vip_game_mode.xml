@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_hud_glass_card"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Top Handle / Title -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/icon_radar_3d" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:letterSpacing="0.05"
+                android:text="SELECT WINGO MODE"
+                android:textColor="@color/vip_gold"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnCloseModeDialog"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_header_action_btn"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_minimize_3d" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Tip: Modes also auto-sync when you change game tabs."
+        android:textColor="@color/vip_text_secondary"
+        android:textSize="10sp" />
+
+    <!-- 4 Game Mode 3D Selectable Cards -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical">
+
+        <!-- Mode 1: 30 SEC -->
+        <LinearLayout
+            android:id="@+id/btnMode30Sec"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@drawable/bg_hud_card_item"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp">
+
+            <TextView
+                android:layout_width="32dp"
+                android:layout_height="24dp"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:gravity="center"
+                android:text="30s"
+                android:textColor="@color/vip_gold"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30 SECONDS"
+                    android:textColor="@color/vip_white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WinGo 30s • High Frequency"
+                    android:textColor="@color/vip_text_hint"
+                    android:textSize="9sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvCheck30Sec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACTIVE"
+                android:textColor="@color/vip_accent_cyan"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Mode 2: 1 MIN -->
+        <LinearLayout
+            android:id="@+id/btnMode1Min"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_hud_card_item"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp">
+
+            <TextView
+                android:layout_width="32dp"
+                android:layout_height="24dp"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:gravity="center"
+                android:text="1m"
+                android:textColor="@color/vip_accent_cyan"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 MINUTE"
+                    android:textColor="@color/vip_white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WinGo 1Min • Standard Classic"
+                    android:textColor="@color/vip_text_hint"
+                    android:textSize="9sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvCheck1Min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/vip_accent_cyan"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Mode 3: 3 MIN -->
+        <LinearLayout
+            android:id="@+id/btnMode3Min"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_hud_card_item"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp">
+
+            <TextView
+                android:layout_width="32dp"
+                android:layout_height="24dp"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:gravity="center"
+                android:text="3m"
+                android:textColor="@color/vip_gold"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3 MINUTES"
+                    android:textColor="@color/vip_white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WinGo 3Min • High Precision"
+                    android:textColor="@color/vip_text_hint"
+                    android:textSize="9sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvCheck3Min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/vip_accent_cyan"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Mode 4: 5 MIN -->
+        <LinearLayout
+            android:id="@+id/btnMode5Min"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_hud_card_item"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp">
+
+            <TextView
+                android:layout_width="32dp"
+                android:layout_height="24dp"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:gravity="center"
+                android:text="5m"
+                android:textColor="@color/vip_accent_cyan"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5 MINUTES"
+                    android:textColor="@color/vip_white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WinGo 5Min • Deep Trend AI"
+                    android:textColor="@color/vip_text_hint"
+                    android:textSize="9sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvCheck5Min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/vip_accent_cyan"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+

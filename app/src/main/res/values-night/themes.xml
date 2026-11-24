@@ -1,0 +1,43 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme for dark mode (Cyber Red Theme for BDG Game AI Trade Bot). -->
+    <style name="Theme.BdgGameAiTradeBot" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/vip_primary</item>
+        <item name="colorPrimaryVariant">@color/vip_primary_dark</item>
+        <item name="colorOnPrimary">@color/vip_white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/vip_accent_cyan</item>
+        <item name="colorSecondaryVariant">@color/vip_primary_dark</item>
+        <item name="colorOnSecondary">@color/vip_black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/vip_bg_dark</item>
+        <item name="android:navigationBarColor">@color/vip_bg_dark</item>
+        <item name="android:windowBackground">@color/vip_bg_dark</item>
+    </style>
+
+    <!-- Compatibility Aliases -->
+    <style name="Theme.TeamPanther" parent="Theme.BdgGameAiTradeBot" />
+    <style name="Theme.TeamPantherNew" parent="Theme.BdgGameAiTradeBot" />
+    <style name="Theme.VipAutoBot" parent="Theme.BdgGameAiTradeBot" />
+
+    <!-- Custom Outlined Text Input Layout Style (Sharp Rectangle Cyber Red Theme) -->
+    <style name="Widget.BdgGameAiTradeBot.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">2dp</item>
+        <item name="boxCornerRadiusTopEnd">2dp</item>
+        <item name="boxCornerRadiusBottomStart">2dp</item>
+        <item name="boxCornerRadiusBottomEnd">2dp</item>
+        <item name="boxStrokeColor">@color/vip_card_stroke</item>
+        <item name="boxStrokeWidth">1.2dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxBackgroundColor">@color/vip_input_bg</item>
+        <item name="hintTextColor">@color/vip_primary</item>
+        <item name="android:textColorHint">@color/vip_text_hint</item>
+        <item name="startIconTint">@color/vip_text_secondary</item>
+        <item name="endIconTint">@color/vip_text_secondary</item>
+        <item name="errorTextColor">@color/vip_error</item>
+        <item name="errorIconTint">@color/vip_error</item>
+    </style>
+
+    <style name="Widget.TeamPanther.TextInputLayout" parent="Widget.BdgGameAiTradeBot.TextInputLayout" />
+    <style name="Widget.VipAutoBot.TextInputLayout" parent="Widget.BdgGameAiTradeBot.TextInputLayout" />
+</resources>

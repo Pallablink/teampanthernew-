@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#40FFFFFF">
+    <item>
+        <layer-list>
+            <!-- 3D Beveled Bottom Shadow -->
+            <item android:top="2dp">
+                <shape android:shape="rectangle">
+                    <corners android:radius="2dp" />
+                    <solid android:color="#450A0A" />
+                </shape>
+            </item>
+
+            <!-- Metallic Cyber Red Surface (Sharp Rectangle) -->
+            <item android:bottom="2dp">
+                <shape android:shape="rectangle">
+                    <corners android:radius="2dp" />
+                    <gradient
+                        android:angle="270"
+                        android:startColor="#FF3B5C"
+                        android:centerColor="#EF4444"
+                        android:endColor="#991B1B"
+                        android:type="linear" />
+                    <stroke
+                        android:width="1.5dp"
+                        android:color="#FF8A9E" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</ripple>

@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">TeamPanther</string>
+    <string name="tagline">Trade Smart... Earn Big...</string>
+    
+    <!-- Auth Headers -->
+    <string name="welcome_back">Welcome Back</string>
+    <string name="login_subtitle">Sign in to your TeamPanther account</string>
+    <string name="register_title">Create Account</string>
+    <string name="register_subtitle">Start trading smart with AI automation</string>
+    
+    <!-- Switcher Tabs -->
+    <string name="tab_sign_in">Sign In</string>
+    <string name="tab_register">Register</string>
+    
+    <!-- Input Labels & Hints -->
+    <string name="label_email_or_username">Email or Username</string>
+    <string name="hint_email_or_username">Enter your email or username</string>
+    <string name="label_username">Username</string>
+    <string name="hint_username">e.g. Panther_Master</string>
+    <string name="label_phone">Phone Number</string>
+    <string name="hint_phone">Enter your mobile number</string>
+    <string name="label_email">Email Address</string>
+    <string name="hint_email">name@domain.com</string>
+    <string name="label_password">Password</string>
+    <string name="hint_password">Enter your password</string>
+    <string name="label_confirm_password">Confirm Password</string>
+    <string name="hint_confirm_password">Re-enter your password</string>
+    
+    <!-- Checkboxes & Links -->
+    <string name="remember_me">Remember Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="agree_terms">I agree to Terms &amp; Privacy Policy</string>
+    <string name="no_account">Don\'t have an account? </string>
+    <string name="register_now">Register Now</string>
+    <string name="have_account">Already have an account? </string>
+    <string name="sign_in_now">Sign In</string>
+    
+    <!-- Buttons -->
+    <string name="btn_sign_in">Sign In to Dashboard</string>
+    <string name="btn_register">Create Account</string>
+    <string name="or_continue_with">OR CONTINUE WITH</string>
+    <string name="google_sign_in">Continue with Google</string>
+    
+    <!-- Forgot Password Dialog -->
+    <string name="forgot_dialog_title">Reset Password</string>
+    <string name="forgot_dialog_desc">Enter your registered email or phone number. We\'ll send you a verification link to reset your password.</string>
+    <string name="label_reset_target">Email or Phone Number</string>
+    <string name="hint_reset_target">Enter registered email or phone</string>
+    <string name="btn_send_reset">Send Reset Link</string>
+    <string name="reset_sent_success">Password reset instructions sent!</string>
+    
+    <!-- Validation Errors -->
+    <string name="error_empty_identifier">Please enter your email or username</string>
+    <string name="error_empty_password">Please enter your password</string>
+    <string name="error_short_password">Password must be at least 6 characters</string>
+    <string name="error_empty_username">Please enter your username</string>
+    <string name="error_short_username">Username must be at least 3 characters</string>
+    <string name="error_empty_phone">Please enter your phone number</string>
+    <string name="error_invalid_phone">Please enter a valid phone number (at least 10 digits)</string>
+    <string name="error_empty_email">Please enter your email address</string>
+    <string name="error_invalid_email">Please enter a valid email address</string>
+    <string name="error_password_mismatch">Passwords do not match</string>
+    <string name="error_terms_required">Please accept the Terms &amp; Privacy Policy</string>
+    <string name="error_empty_reset_target">Please enter your email or phone</string>
+    
+    <!-- Success Messages -->
+    <string name="login_success">Login Successful! Welcome to Team Panther.</string>
+    <string name="register_success">Account Created Successfully! Welcome to Team Panther.</string>
+</resources>

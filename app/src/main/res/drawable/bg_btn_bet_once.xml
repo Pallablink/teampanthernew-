@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#40FF3B5C">
+    <item>
+        <layer-list>
+            <!-- 3D Bottom Shadow -->
+            <item android:top="2dp">
+                <shape android:shape="rectangle">
+                    <corners android:radius="2dp" />
+                    <solid android:color="#450A0A" />
+                </shape>
+            </item>
+
+            <!-- 3D Beveled Red / Obsidian Body (Sharp Rectangle) -->
+            <item android:bottom="2dp">
+                <shape android:shape="rectangle">
+                    <corners android:radius="2dp" />
+                    <gradient
+                        android:angle="270"
+                        android:startColor="#2D1217"
+                        android:centerColor="#1A0A0E"
+                        android:endColor="#B91C1C"
+                        android:type="linear" />
+                    <stroke
+                        android:width="1.5dp"
+                        android:color="#EF4444" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</ripple>

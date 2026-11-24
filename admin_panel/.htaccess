@@ -1,0 +1,15 @@
+# TeamPanther - Apache & cPanel configuration
+
+# Disable Directory Browsing
+Options -Indexes
+
+# Protect Sensitive Files
+<FilesMatch "(database\.sql|\.env|\.git)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Enable UTF-8 encoding
+AddDefaultCharset UTF-8
+
+

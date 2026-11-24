@@ -1,0 +1,1232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/vip_bg_dark"
+    android:orientation="vertical">
+
+    <!-- Status Bar Spacer (Prevents Phone Time, Battery, 5G from Overlapping Header) -->
+    <View
+        android:id="@+id/statusBarSpacer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#090D18" />
+
+    <!-- ============================================== -->
+    <!-- TOP VIP HEADER BAR (Clean: Settings moved)     -->
+    <!-- ============================================== -->
+    <FrameLayout
+        android:id="@+id/layoutTopHeader"
+        android:layout_width="match_parent"
+        android:layout_height="44dp">
+
+        <!-- Background Cyber Graphic Strip -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Header Graphic"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_header_graphic" />
+
+        <!-- Header Content Container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <!-- Back Action Button -->
+            <ImageButton
+                android:id="@+id/btnHeaderBack"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_header_btn_back"
+                android:contentDescription="Back"
+                android:padding="2.5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icon_back_3d" />
+
+            <!-- 3D VIP Bot Logo with Subtle Ring Frame -->
+            <FrameLayout
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_logo_halo"
+                android:padding="2.5dp">
+
+                <ImageView
+                    android:id="@+id/ivHeaderLogo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="VIP Logo"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/logo_header_vip_robot" />
+            </FrameLayout>
+
+            <!-- Title & Live Engine Badge -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvHeaderTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.05"
+                    android:shadowColor="#80F59E0B"
+                    android:shadowDx="0"
+                    android:shadowDy="1"
+                    android:shadowRadius="4"
+                    android:text="@string/app_name"
+                    android:textColor="@color/vip_white"
+                    android:textSize="12.5sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:background="@drawable/bg_tab_active_gold" />
+
+                    <TextView
+                        android:id="@+id/tvHeaderStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:letterSpacing="0.03"
+                        android:text="BOT ONLINE"
+                        android:textColor="@color/vip_accent_cyan"
+                        android:textSize="8.5sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Right-Side Action Buttons: Refresh & Logout -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- 1. Refresh Button -->
+                <ImageButton
+                    android:id="@+id/btnHeaderRefresh"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_header_btn_cyan"
+                    android:contentDescription="Refresh"
+                    android:padding="2.5dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_refresh_3d" />
+
+                <!-- 2. Logout Button -->
+                <ImageButton
+                    android:id="@+id/btnHeaderLogout"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_header_btn_exit"
+                    android:contentDescription="Logout"
+                    android:padding="2.5dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_logout_3d" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- Top Loading Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/bg_btn_vip_gold"
+        android:visibility="gone" />
+
+    <!-- Web Content, Error State & Floating VIP Bot HUD -->
+    <FrameLayout
+        android:id="@+id/layoutWebContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Chrome Custom Tabs Game Hub Panel (Hidden for In-App Browser) -->
+        <LinearLayout
+            android:id="@+id/layoutChromeHub"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:background="@color/vip_bg_dark"
+            android:visibility="gone">
+
+            <!-- 3D Logo / Icon -->
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/logo_header_vip_robot"
+                android:contentDescription="Team Panther" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="CHROME GAME BROWSER"
+                android:textColor="@color/vip_gold"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="Powered by genuine Google Chrome for 100% graphics, full lottery games, and fast login speed."
+                android:textColor="@color/vip_text_secondary"
+                android:textSize="12sp" />
+
+            <!-- Launch Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOpenChromeBrowser"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_btn_vip_gold"
+                android:text="🚀  OPEN CHROME GAME BROWSER"
+                android:textAllCaps="false"
+                android:textColor="@color/vip_white"
+                android:textSize="13.5sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="6dp" />
+
+            <!-- Target URL indicator -->
+            <TextView
+                android:id="@+id/tvChromeTargetUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Target: https://kwgbet9.com/"
+                android:textColor="@color/vip_text_hint"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <!-- In-App WebView (Primary In-App Game Engine) -->
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/vip_bg_dark"
+            android:overScrollMode="never"
+            android:visibility="visible" />
+
+        <!-- Error Layout -->
+        <LinearLayout
+            android:id="@+id/layoutError"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/vip_bg_dark"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/logo_vip_bot" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Connection Issue"
+                android:textColor="@color/vip_text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvErrorMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Unable to reach the game server. Please check your internet connection."
+                android:textColor="@color/vip_text_secondary"
+                android:textSize="14sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRetry"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_btn_vip_gold"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:text="Retry Connection"
+                android:textAllCaps="false"
+                android:textColor="@color/vip_white"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="2dp" />
+        </LinearLayout>
+
+        <!-- ============================================== -->
+        <!-- DRAGGABLE FLOATING VIP BOT HUD OVERLAY         -->
+        <!-- ============================================== -->
+        <FrameLayout
+            android:id="@+id/layoutFloatingBotCapsule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <!-- 1. FULL MAXIMIZED BDG Trade Bot HUD OVERLAY (Medium Sized) -->
+            <LinearLayout
+                android:id="@+id/cardExpandedCapsule"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_floating_capsule"
+                android:elevation="18dp"
+                android:orientation="vertical"
+                android:paddingStart="8dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="7dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="visible">
+
+                <!-- Generous Top Drag Handle Bar -->
+                <LinearLayout
+                    android:id="@+id/layoutDragHandleContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="5dp">
+
+                    <View
+                        android:id="@+id/viewExpandedDragHandle"
+                        android:layout_width="52dp"
+                        android:layout_height="5dp"
+                        android:background="@drawable/bg_tab_container" />
+                </LinearLayout>
+
+                <!-- SECTION 1: Top HUD Bar (Title, REAL badge, Countdown, Minimize) -->
+                <LinearLayout
+                    android:id="@+id/layoutExpandedHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- 3D Logo -->
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="Bot Logo"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/logo_floating_vip_robot" />
+
+                    <!-- Title & Subtitle -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:letterSpacing="0.03"
+                            android:maxLines="1"
+                            android:text="TeamPanther Bot"
+                            android:textColor="@color/vip_white"
+                            android:textSize="10.5sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AI AUTOMATION"
+                            android:textColor="@color/vip_accent_cyan"
+                            android:textSize="7sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- 3D Calculator Button (Between Title and REAL Badge) -->
+                    <ImageButton
+                        android:id="@+id/btnHudCalculator"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginEnd="3dp"
+                        android:background="@drawable/bg_header_action_btn"
+                        android:contentDescription="Calculator"
+                        android:padding="2dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_calculator_3d" />
+
+                    <!-- REAL Mode Badge -->
+                    <TextView
+                        android:id="@+id/tvRealBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_real"
+                        android:paddingStart="5dp"
+                        android:paddingTop="1.5dp"
+                        android:paddingEnd="5dp"
+                        android:paddingBottom="1.5dp"
+                        android:text="REAL"
+                        android:textColor="@color/vip_white"
+                        android:textSize="8.5sp"
+                        android:textStyle="bold" />
+
+                    <!-- Live Synchronized WinGo Countdown Timer -->
+                    <LinearLayout
+                        android:id="@+id/layoutHudTimer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/bg_hud_card_item"
+                        android:gravity="center_vertical"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp">
+
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:src="@drawable/icon_refresh_3d" />
+
+                        <TextView
+                            android:id="@+id/tvHudCountdown"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="3dp"
+                            android:letterSpacing="0.04"
+                            android:text="00:00"
+                            android:textColor="@color/vip_accent_cyan"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Minimize Chevron Button (Always Visible On Right Edge) -->
+                    <ImageButton
+                        android:id="@+id/btnFloatingMinimize"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/bg_header_action_btn"
+                        android:contentDescription="Minimize"
+                        android:padding="2.5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_minimize_3d" />
+
+                </LinearLayout>
+
+                <!-- SECTION 2: Game Mode (30s/1m/3m/5m) & Period Bar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- Game Mode Dropdown Selector -->
+                    <TextView
+                        android:id="@+id/btnGameMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_header_btn_cyan"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:paddingStart="6dp"
+                        android:paddingEnd="6dp"
+                        android:text="30 SEC ▾"
+                        android:textColor="@color/vip_accent_cyan"
+                        android:textSize="9.5sp"
+                        android:textStyle="bold" />
+
+                    <!-- Current Period -->
+                    <TextView
+                        android:id="@+id/tvPeriodNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:letterSpacing="0.04"
+                        android:text="#0620"
+                        android:textColor="@color/vip_gold"
+                        android:textSize="10.5sp"
+                        android:textStyle="bold" />
+
+                    <!-- Last Period Outcome -->
+                    <TextView
+                        android:id="@+id/tvLastResult"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="LAST ROUND --"
+                        android:textColor="@color/vip_text_secondary"
+                        android:textSize="8.5sp" />
+                </LinearLayout>
+
+                <!-- SECTION 3: Signal Prediction Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_hud_card_item"
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <!-- Left: Signal Output -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.08"
+                                android:text="SIGNAL"
+                                android:textColor="@color/vip_text_hint"
+                                android:textSize="8sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/ivSignal3DArrow"
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:contentDescription="Signal 3D Arrow"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/icon_signal_small_3d" />
+
+                                <TextView
+                                    android:id="@+id/tvSignalDirection"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="6dp"
+                                    android:letterSpacing="0.05"
+                                    android:text="SMALL"
+                                    android:textColor="@color/vip_accent_cyan"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Right: Auto Bet Indicator -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_history_w"
+                                android:paddingStart="6dp"
+                                android:paddingTop="1.5dp"
+                                android:paddingEnd="6dp"
+                                android:paddingBottom="1.5dp"
+                                android:text="REAL BET"
+                                android:textColor="@color/vip_white"
+                                android:textSize="8sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1dp"
+                                android:text="auto bets real money"
+                                android:textColor="@color/vip_text_secondary"
+                                android:textSize="7.5sp" />
+
+                            <TextView
+                                android:id="@+id/tvSignalStrength"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="70% strength"
+                                android:textColor="@color/vip_gold"
+                                android:textSize="8sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Signal Strength Progress Bar -->
+                    <ProgressBar
+                        android:id="@+id/pbSignalStrength"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginTop="4dp"
+                        android:max="100"
+                        android:progress="70"
+                        android:progressDrawable="@drawable/bg_btn_gradient" />
+
+                    <!-- Last 6 History Bar -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.04"
+                            android:text="LAST 6"
+                            android:textColor="@color/vip_text_hint"
+                            android:textSize="8sp"
+                            android:textStyle="bold" />
+
+                        <!-- 6 Badges: B S B B S S -->
+                        <LinearLayout
+                            android:id="@+id/layoutLast6Badges"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/h6_1"
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:background="@drawable/bg_history_b"
+                                android:gravity="center"
+                                android:text="B"
+                                android:textColor="@color/vip_white"
+                                android:textSize="7.5sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/h6_2"
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:layout_marginStart="3dp"
+                                android:background="@drawable/bg_history_s"
+                                android:gravity="center"
+                                android:text="S"
+                                android:textColor="@color/vip_white"
+                                android:textSize="7.5sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/h6_3"
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:layout_marginStart="3dp"
+                                android:background="@drawable/bg_history_b"
+                                android:gravity="center"
+                                android:text="B"
+                                android:textColor="@color/vip_white"
+                                android:textSize="7.5sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/h6_4"
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:layout_marginStart="3dp"
+                                android:background="@drawable/bg_history_b"
+                                android:gravity="center"
+                                android:text="B"
+                                android:textColor="@color/vip_white"
+                                android:textSize="7.5sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/h6_5"
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:layout_marginStart="3dp"
+                                android:background="@drawable/bg_history_s"
+                                android:gravity="center"
+                                android:text="S"
+                                android:textColor="@color/vip_white"
+                                android:textSize="7.5sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/h6_6"
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:layout_marginStart="3dp"
+                                android:background="@drawable/bg_history_s"
+                                android:gravity="center"
+                                android:text="S"
+                                android:textColor="@color/vip_white"
+                                android:textSize="7.5sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvTrendStats"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="seen 756× • next BIG 49.5%"
+                            android:textColor="@color/vip_text_secondary"
+                            android:textSize="8sp" />
+                    </LinearLayout>
+
+                    <!-- Last Round Win Result Banner -->
+                    <TextView
+                        android:id="@+id/tvLastRoundWinBanner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="#2610B981"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="READY FOR AUTO BET"
+                        android:textColor="@color/vip_gold"
+                        android:textSize="8.5sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- SECTION 4: 4-Grid Stats Panel (Balance, Bet, Profit, W/L) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <!-- 1. Real Balance -->
+                    <LinearLayout
+                        android:id="@+id/cardUserBalance"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hud_card_item"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="BALANCE"
+                                android:textColor="@color/vip_text_hint"
+                                android:textSize="7sp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/btnSyncBalance"
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:src="@drawable/icon_refresh_3d" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvUserBalance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:text="₹0.00"
+                            android:textColor="@color/vip_white"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="tap to read"
+                            android:textColor="@color/vip_accent_cyan"
+                            android:textSize="6.5sp" />
+                    </LinearLayout>
+
+                    <!-- 2. Next Bet -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hud_card_item"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BET"
+                            android:textColor="@color/vip_text_hint"
+                            android:textSize="7sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvNextBet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:text="₹6.00"
+                            android:textColor="@color/vip_white"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="next stake"
+                            android:textColor="@color/vip_text_secondary"
+                            android:textSize="6.5sp" />
+                    </LinearLayout>
+
+                    <!-- 3. Profit -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hud_card_item"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PROFIT"
+                            android:textColor="@color/vip_text_hint"
+                            android:textSize="7sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvProfitAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:text="+₹103.68"
+                            android:textColor="@color/vip_success"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="this session"
+                            android:textColor="@color/vip_text_secondary"
+                            android:textSize="6.5sp" />
+                    </LinearLayout>
+
+                    <!-- 4. Win / Loss -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_hud_card_item"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="W / L"
+                            android:textColor="@color/vip_text_hint"
+                            android:textSize="7sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvWinLossRatio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:text="37 / 20"
+                            android:textColor="@color/vip_white"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvWinRate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="65% win"
+                            android:textColor="@color/vip_gold"
+                            android:textSize="6.5sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- SECTION 5: Target Progress Bar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvTargetHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TARGET ₹500.00"
+                        android:textColor="@color/vip_gold"
+                        android:textSize="8.5sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvTargetDetails"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="21% • ₹396.32 to go"
+                        android:textColor="@color/vip_text_secondary"
+                        android:textSize="8sp" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/pbTargetProgress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="2dp"
+                    android:max="100"
+                    android:progress="21"
+                    android:progressDrawable="@drawable/bg_btn_vip_gold" />
+
+                <!-- SECTION 6: Last 20 History Strip -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="W / L / S • LAST 20"
+                        android:textColor="@color/vip_text_hint"
+                        android:textSize="8sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnViewAllHistory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="2dp"
+                        android:text="VIEW ALL &gt;"
+                        android:textColor="@color/vip_accent_cyan"
+                        android:textSize="8sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- 20 Mini Badges Horizontal Strip (Dynamic Bot Bet History) -->
+                <LinearLayout
+                    android:id="@+id/layoutLast20Strip"
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" />
+
+                <!-- SECTION 7: Bottom Action Buttons (STOP AUTO / BET ONCE / RESET / SETTINGS) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- Button 1: STOP AUTO / START AUTO -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnStopAuto"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.3"
+                        android:background="@drawable/bg_bot_btn_running"
+                        android:elevation="3dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:letterSpacing="0.03"
+                        android:maxLines="1"
+                        android:padding="0dp"
+                        android:text="▶  START AUTO"
+                        android:textAllCaps="false"
+                        android:textColor="@color/vip_white"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@null"
+                        app:cornerRadius="2dp" />
+
+                    <!-- Button 2: BET ONCE -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnBetOnce"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1.1"
+                        android:background="@drawable/bg_btn_bet_once"
+                        android:elevation="3dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:letterSpacing="0.03"
+                        android:maxLines="1"
+                        android:padding="0dp"
+                        android:text="BET ONCE"
+                        android:textAllCaps="false"
+                        android:textColor="@color/vip_accent_cyan"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@null"
+                        app:cornerRadius="2dp" />
+
+                    <!-- Button 3: Reset Stats Button -->
+                    <ImageButton
+                        android:id="@+id/btnResetStats"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="4dp"
+                        android:background="@drawable/bg_header_action_btn"
+                        android:contentDescription="Reset"
+                        android:padding="2.5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_refresh_3d" />
+
+                    <!-- Button 4: Settings Button (3D Realistic Gear) -->
+                    <ImageButton
+                        android:id="@+id/btnBotSettings"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="4dp"
+                        android:background="@drawable/bg_header_btn_gold"
+                        android:contentDescription="Settings"
+                        android:padding="2.5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_settings_3d" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 2. MINI COLLAPSED FLOATING PILL (Shows when minimized) -->
+            <LinearLayout
+                android:id="@+id/cardMiniPill"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_mini_floating_pill"
+                android:elevation="14dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="6dp"
+                android:paddingEnd="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="Logo"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/logo_floating_vip_robot" />
+
+                <View
+                    android:id="@+id/viewMiniStatusDot"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/bg_tab_active_gold" />
+
+                <TextView
+                    android:id="@+id/tvMiniBotText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:letterSpacing="0.03"
+                    android:text="PANTHER BOT 00:00"
+                    android:textColor="@color/vip_gold"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- 3D VIP IN-APP FLOATING NOTIFICATION / TOAST BANNER -->
+        <LinearLayout
+            android:id="@+id/cardVipToast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="28dp"
+            android:background="@drawable/bg_vip_toast_3d"
+            android:clickable="false"
+            android:focusable="false"
+            android:elevation="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="14dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="10dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/ivToastIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_floating_vip_robot" />
+
+            <TextView
+                android:id="@+id/tvToastMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:letterSpacing="0.04"
+                android:text="VIP NOTIFICATION"
+                android:textColor="@color/vip_white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- TEMPORARY DEVTOOLS FLOATING BAR (Network & Console Inspector) -->
+        <LinearLayout
+            android:id="@+id/layoutDevFloatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_dev_floating_bar"
+            android:elevation="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="4dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="2dp"
+            android:visibility="gone">
+
+            <!-- Drag Handle -->
+            <TextView
+                android:id="@+id/tvDevDragHandle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="2dp"
+                android:paddingEnd="4dp"
+                android:text="⠿"
+                android:textColor="#9CA3AF"
+                android:textSize="11sp" />
+
+            <!-- Network Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDevNetwork"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:backgroundTint="#1F2937"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:text="🌐 Net: 0"
+                android:textAllCaps="false"
+                android:textColor="#38BDF8"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                app:cornerRadius="4dp" />
+
+            <!-- Console Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDevConsole"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:backgroundTint="#1F2937"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:text="💻 Console: 0"
+                android:textAllCaps="false"
+                android:textColor="#F59E0B"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                app:cornerRadius="4dp" />
+        </LinearLayout>
+
+        <!-- Full-screen Touch Interceptor Overlay (Blocks user touches while Bot is placing bet) -->
+        <View
+            android:id="@+id/viewTouchBlocker"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>
+
+
+

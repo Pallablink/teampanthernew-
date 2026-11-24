@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#40FFFFFF">
+    <item>
+        <layer-list>
+            <!-- 3D Bottom Drop Shadow / Base Edge -->
+            <item android:top="2dp">
+                <shape android:shape="rectangle">
+                    <corners android:radius="2dp" />
+                    <solid android:color="#450A0A" />
+                </shape>
+            </item>
+
+            <!-- 3D Solid Crimson Beveled Body (Sharp Rectangle) -->
+            <item android:bottom="2dp">
+                <shape android:shape="rectangle">
+                    <corners android:radius="2dp" />
+                    <gradient
+                        android:angle="270"
+                        android:startColor="#FF3B5C"
+                        android:centerColor="#EF4444"
+                        android:endColor="#B91C1C"
+                        android:type="linear" />
+                    <stroke
+                        android:width="1.5dp"
+                        android:color="#FF8A9E" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</ripple>

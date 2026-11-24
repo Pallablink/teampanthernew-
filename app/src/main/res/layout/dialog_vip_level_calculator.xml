@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_hud_glass_card"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Top Drag Handle -->
+        <View
+            android:layout_width="44dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_tab_inactive" />
+
+        <!-- Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/icon_calculator_3d" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:letterSpacing="0.04"
+                    android:text="Level &amp; Bet Calculator"
+                    android:textColor="@color/vip_gold"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_header_btn_cyan"
+                android:paddingStart="8dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="3dp"
+                android:text="RISK MANAGEMENT"
+                android:textColor="@color/vip_accent_cyan"
+                android:textSize="9sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Calculate safe starting bet based on your affordable loss capacity and maintenance levels."
+            android:textColor="@color/vip_text_secondary"
+            android:textSize="10.5sp" />
+
+        <!-- 1. SELECT MULTIPLIER TRICK -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:letterSpacing="0.05"
+            android:text="1. SELECT MULTIPLIER TRICK"
+            android:textColor="@color/vip_accent_cyan"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCalc2x"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_toggle_active_2x"
+                android:letterSpacing="0.04"
+                android:text="2X MARTINGALE"
+                android:textAllCaps="false"
+                android:textColor="@color/vip_white"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="2dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCalc3x"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_toggle_inactive"
+                android:letterSpacing="0.04"
+                android:text="3X LEVEL TRICK"
+                android:textAllCaps="false"
+                android:textColor="@color/vip_text_hint"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="2dp" />
+        </LinearLayout>
+
+        <!-- 2. AFFORDABLE LOSS CAPACITY -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.05"
+                android:text="2. HOW MUCH LOSS CAN YOU AFFORD? (₹)"
+                android:textColor="@color/vip_accent_cyan"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvCalcWalletRef"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="Wallet: ₹0.92"
+                android:textColor="@color/vip_gold"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Budget Input -->
+        <EditText
+            android:id="@+id/etCalcAffordableLoss"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_hud_card_item"
+            android:digits="0123456789."
+            android:inputType="numberDecimal"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:text="2000"
+            android:textColor="@color/vip_white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!-- Preset Budget Chips -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chipBudget100"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_vip_chip_btn"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:text="₹100"
+                    android:textColor="@color/vip_white"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/chipBudget500"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_vip_chip_btn"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:text="₹500"
+                    android:textColor="@color/vip_white"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/chipBudget1k"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_vip_chip_btn"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:text="₹1,000"
+                    android:textColor="@color/vip_white"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/chipBudget2k"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_vip_chip_btn"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:text="₹2,000"
+                    android:textColor="@color/vip_white"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/chipBudget5k"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_vip_chip_btn"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:text="₹5,000"
+                    android:textColor="@color/vip_white"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/chipBudget10k"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_vip_chip_btn"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:text="₹10,000"
+                    android:textColor="@color/vip_white"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- 3. LEVELS TO MAINTAIN -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:letterSpacing="0.05"
+            android:text="3. HOW MANY LEVELS TO MAINTAIN?"
+            android:textColor="@color/vip_accent_cyan"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etCalcLevels"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_hud_card_item"
+            android:inputType="number"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:text="10"
+            android:textColor="@color/vip_white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!-- Preset Level Chips -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chipLvl5"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="5 LVL"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipLvl6"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="6 LVL"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipLvl7"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="7 LVL"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipLvl8"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="8 LVL"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chipLvl10"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_vip_chip_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="10 LVL"
+                android:textColor="@color/vip_white"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 4. RECOMMENDED BET RESULT CARD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_hud_card_item"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.06"
+                    android:text="SET YOUR FIRST BET TO:"
+                    android:textColor="@color/vip_text_hint"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCalcMultiplierTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bg_history_b"
+                    android:paddingStart="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="2dp"
+                    android:text="2x MARTINGALE"
+                    android:textColor="@color/vip_white"
+                    android:textSize="8.5sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvCalcRecommendedBet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:letterSpacing="0.04"
+                android:text="₹1.00"
+                android:textColor="@color/vip_gold"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <!-- Stats 3-Column Strip -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TOTAL RISK"
+                        android:textColor="@color/vip_text_hint"
+                        android:textSize="8.5sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvCalcTotalRisk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="₹1,023.00"
+                        android:textColor="@color/vip_error"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BUFFER LEFT"
+                        android:textColor="@color/vip_text_hint"
+                        android:textSize="8.5sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvCalcBuffer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="+₹977.00"
+                        android:textColor="@color/vip_success"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PROTECTION"
+                        android:textColor="@color/vip_text_hint"
+                        android:textSize="8.5sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvCalcProtection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="10 Losses"
+                        android:textColor="@color/vip_accent_cyan"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Status Note -->
+            <TextView
+                android:id="@+id/tvCalcStatusNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="2dp"
+                android:text="Safe plan: Covers all 10 levels within your ₹2,000 budget with ₹977 buffer remaining."
+                android:textColor="@color/vip_success"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <!-- 5. LEVEL-BY-LEVEL BREAKDOWN -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:letterSpacing="0.05"
+            android:text="LEVEL-BY-LEVEL BET BREAKDOWN"
+            android:textColor="@color/vip_gold"
+            android:textSize="10.5sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/llCalcBreakdownList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_hud_card_item"
+            android:orientation="vertical"
+            android:padding="10dp" />
+
+        <!-- 6. APPLY TO ROBOT BUTTON -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCalcApplyToBot"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/bg_btn_vip_gold"
+            android:letterSpacing="0.04"
+            android:text="APPLY TO ROBOT"
+            android:textAllCaps="false"
+            android:textColor="@color/vip_white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            app:cornerRadius="2dp"
+            app:icon="@drawable/icon_radar_3d"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:iconSize="18dp"
+            app:iconTint="@null" />
+
+        <!-- Close Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCalcClose"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_vip_secondary_btn"
+            android:letterSpacing="0.04"
+            android:text="CLOSE"
+            android:textAllCaps="false"
+            android:textColor="@color/vip_text_secondary"
+            android:textSize="11.5sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            app:cornerRadius="2dp" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+
+
+

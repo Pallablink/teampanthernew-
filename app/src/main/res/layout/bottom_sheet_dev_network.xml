@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12131A"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Top Handle Bar -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp"
+        android:background="#374151" />
+
+    <!-- Header Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="🌐 Website Network Inspector"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCopyNetwork"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:backgroundTint="#1F2937"
+            android:minHeight="0dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="Copy All"
+            android:textColor="#38BDF8"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btnClearNetwork"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginStart="6dp"
+            android:backgroundTint="#1F2937"
+            android:minHeight="0dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="Clear"
+            android:textColor="#EF4444"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btnCloseNetwork"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginStart="6dp"
+            android:backgroundTint="#374151"
+            android:minHeight="0dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="✕ Close"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvNetworkSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Total: 0 | Failed: 0"
+        android:textColor="#9CA3AF"
+        android:textSize="12sp" />
+
+    <!-- Filter Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnFilterAll"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:backgroundTint="#374151"
+            android:minHeight="0dp"
+            android:text="All"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btnFilterXhr"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:backgroundTint="#1F2937"
+            android:minHeight="0dp"
+            android:text="Fetch/XHR"
+            android:textColor="#9CA3AF"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btnFilterErrors"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:backgroundTint="#1F2937"
+            android:minHeight="0dp"
+            android:text="Errors Only"
+            android:textColor="#9CA3AF"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="6dp"
+        android:background="#1F2937" />
+
+    <!-- Content ScrollView -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/layoutNetworkList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+</LinearLayout>
